@@ -1,0 +1,145 @@
+<!doctype html>
+<html ng-app="signatureGenerator">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>CMA Signature Generator</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body ng-controller="SigController">
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <div>
+            <h1>CMA Signature Generator</h1>
+            <p>Please enter all the requested information below to generate your new email signature!</p>
+            <h3>To Use:</h3>
+            <ol>
+                <li><p>Update all the data below to the values that corespond to you.</p></li>
+                <li><p>Drag and select the <em>whole signature</em> below and hit <strong>Ctrl + C</strong>.</p></li>
+                <li><p>Create a new signature in Outlook and name it what you like.</p></li>
+                <li><p>In the signature window's empty text field, hit <strong>Enter</strong> once and then hit <strong>Ctrl + V</strong>.</p></li>
+                <li><p>Set the new signature as default and hit <strong>OK</strong>.</p></li>
+                <li><p><strong><em>You're done!</em></strong></p></li>
+            </ol>
+        </div>
+        <div style="margin-bottom:30px;">
+            <form ng-data="sigData">
+            <div>
+                <label>Name:</label>
+                <input type="text" ng-model="sigData.name">
+            </div>
+            <div>
+                <label>Title:</label>
+                <input type="text" ng-model="sigData.title">
+            </div>
+            <div>
+                <label>Street Address:</label>
+                <input type="text" ng-model="sigData.street">
+            </div>
+            <div>
+                <label>City:</label>
+                <input type="text" ng-model="sigData.city">
+            </div>
+            <div>
+                <label>State:</label>
+                <input type="text" ng-model="sigData.state">
+            </div>
+            <div>
+                <label>Zip Code:</label>
+                <input type="text" ng-model="sigData.zipCode">
+            </div>
+            <div>
+                <label>Office Phone:</label>
+                <input type="text" ng-model="sigData.officeNumber">
+            </div>
+            <div>
+                <label>Cell Phone:</label>
+                <input type="text" ng-model="sigData.cellNumber">
+            </div>
+            <div>
+                <label>Email:</label>
+                <input type="text" ng-model="sigData.email">
+            </div>
+            <div>
+                    <label>LinkedIn Fulle URL:</label>
+                <input type="text" ng-model="sigData.linkedin">
+            </div>
+          </form>
+        </div>
+            
+        <style type="text/css">
+            p {
+                font-family: Century Gothic, sans-serif;
+                font-size: 14pt;
+                margin: 0;
+                color: #004B85;
+            }
+            tr, td, table {
+                padding: 0;
+            }
+            .sub-text {
+                font-family: Segoe UI, sans-serif;
+                font-weight: light;
+                font-size: 10pt
+            }
+            a {
+                text-decoration: none;
+                color: #004B85;
+            }
+            a:hover {
+                color: white;
+            }
+            .linkedin-cell {
+                background-color: white;
+            }
+        </style>
+        <table style="background-color:#D1D3D4;">
+            <tr>
+                <td rowspan="7" style="height:30px;width:30px;background-color:#004B85;"></td>
+                <td><p class="name" style="color:#004B85"><strong>{{sigData.name}}</strong></p></td>
+            </tr>
+            <tr>
+                <td><p style="font-size:10pt;" class="job-title">{{sigData.title}}</p></td>
+            </tr>
+            <tr>
+                <td style="background-color:#74A5C9;">
+                    <img src="http://www.cmainc.com/images/CMA-sig-image.png" style="height:85px;width:300;" nosend="1" alt="Corporate Management Advisors, Inc.">
+                </td>
+            </tr>
+            <tr>
+                <td><p class="sub-text">{{sigData.street}} | {{sigData.city}}, {{sigData.state}} {{sigData.zipCode}}</p></td>
+            </tr>
+            <tr>
+                <td><p class="sub-text">Office <strong>{{sigData.officeNumber}}</strong> x{{sigData.extention}} | Cell <strong>{{sigData.cellNumber}}</strong></p></td>
+            </tr>
+            <tr>
+                <td>
+                    <p class="sub-text"><a href="http://www.cmainc.com/?utm_source=email&utm_medium=email&utm_campaign=Referred%20from%20Email
+        ">www.cmainc.com</a> | <a href="mailto:{{sigData.email}}">{{sigData.email}}</a></p>
+                </td>
+            </tr>
+            <tr class="linkedin-cell">
+                <td>
+                    <a href="{{sigData.linkedin}}"><img style="padding-top:4px;padding-left:3px;" src="http://www.cmainc.com/images/linkedin-me.png" style="width:236px;height:34;" nosend="1" alt="{{sigData.name}}'s LinkedIn"></a>
+                </td>
+            </tr>
+        </table>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
