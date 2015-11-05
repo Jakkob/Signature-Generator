@@ -20,7 +20,7 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <div>
+        <div style="margin-left:10px;">
             <h1>CMA Signature Generator</h1>
             <p>Please enter all the requested information below to generate your new email signature!</p>
             <h3>To Use:</h3>
@@ -33,7 +33,7 @@
                 <li><p><strong><em>You're done!</em></strong></p></li>
             </ol>
         </div>
-        <div style="margin-bottom:30px;">
+        <div style="margin-left:10px;margin-bottom:30px;">
             <form ng-data="sigData">
             <div>
                 <label>Name:</label>
@@ -64,8 +64,13 @@
                 <input type="text" ng-model="sigData.officeNumber">
             </div>
             <div>
+                <label>Extention:</label>
+                <input type="text" ng-model="sigData.extention">
+            </div>
+            <div>
                 <label>Cell Phone:</label>
-                <input type="text" ng-model="sigData.cellNumber">
+                <input type="text" ng-disabled="sigData.cellDisable" ng-model="sigData.cellNumber">
+                <label>Disable Cell?</label><input type="checkbox" ng-model="sigData.cellDisable">
             </div>
             <div>
                 <label>Email:</label>
@@ -121,7 +126,7 @@
                 <td><p class="sub-text">{{sigData.street}} | {{sigData.city}}, {{sigData.state}} {{sigData.zipCode}}</p></td>
             </tr>
             <tr>
-                <td><p class="sub-text">Office <strong>{{sigData.officeNumber}}</strong> x{{sigData.extention}} | Cell <strong>{{sigData.cellNumber}}</strong></p></td>
+                <td><p class="sub-text">Office <strong>{{sigData.officeNumber}}</strong> x{{sigData.extention}}<span class="sub-text" ng-hide="sigData.cellDisable"> | Cell <strong>{{sigData.cellNumber}}</strong></span></p></td>
             </tr>
             <tr>
                 <td>

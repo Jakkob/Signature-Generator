@@ -9,7 +9,8 @@ angular.module('signatureGenerator', [])
 			zipCode: "32714",
 			officeNumber: "(407) 869-1817",
 			extention: "1234",
-			cellNumber: "(123) 456-7890",
+			cellDisable: false,
+			cellNumber: "(407) 869-1817",
 			email: "john_doe@company.com",
 			linkedin: "https://www.linkedin.com/pub/brad-hollingsworth/5/9a2/527"
 		}
